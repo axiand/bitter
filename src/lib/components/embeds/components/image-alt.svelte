@@ -13,8 +13,8 @@
 	aria-label="Show image description"
 	popovertarget={id}
 	class="button"
-	style="anchor-name: --{id}">ALT</button
->
+	style="anchor-name: --{id}">ALT
+</button>
 
 <dialog popover="auto" class="dialog" {id} style="position-anchor: --{id}">
 	<h3 class="title">Image description</h3>

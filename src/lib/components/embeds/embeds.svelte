@@ -10,6 +10,7 @@
 	import ExternalEmbed from './external-embed.svelte';
 	import FeedEmbed from './feed-embed.svelte';
 	import ImageEmbed from './image-embed.svelte';
+	import GalleryEmbed from './gallery-embed.svelte';
 	import ListEmbed from './list-embed.svelte';
 	import QuoteBlockedEmbed from './quote-blocked-embed.svelte';
 	import QuoteEmbed from './quote-embed.svelte';
@@ -46,6 +47,8 @@
 			<ExternalEmbed {embed} />
 		{:else if embed.$type === 'app.bsky.embed.images#view'}
 			<ImageEmbed {embed} standalone />
+		{:else if embed.$type === 'app.bsky.embed.gallery#view'}
+			<GalleryEmbed {embed} standalone />
 		{:else if embed.$type === 'app.bsky.embed.video#view'}
 			<VideoStandaloneEmbed {embed} />
 		{:else}
@@ -94,7 +97,7 @@
 		margin: 12px 0 0 0;
 		max-width: 100%;
 
-		&:not(:has(.image-embed .grid)) {
+		&:not(:has(.image-embed .grid, .gallery-embed)) {
 			width: fit-content;
 		}
 	}
