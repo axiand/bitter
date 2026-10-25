@@ -18,6 +18,7 @@
 	}
 
 	const { profile }: Props = $props();
+	console.log(profile)
 
 	const did = $derived(profile.did);
 
@@ -77,6 +78,9 @@
 			{normalizeDisplayName(profile.displayName ?? '') || profile.handle.slice(0, 64)}
 		</p>
 		<p class="handle">@{profile.handle}</p>
+		{#if profile.labels?.find(lab => lab.uri.includes("app.bsky.actor.profile/self") && lab.val == "bot")}
+			<p class="profile-badge">Automated</p>
+		{/if}
 	</div>
 
 	{#if description}
@@ -121,6 +125,7 @@
 	.handle {
 		color: var(--text-blurb);
 		overflow-wrap: break-word;
+		width: fit-content;
 	}
 
 	.stats {
@@ -168,5 +173,15 @@
 		height: 16px;
 		width: 16px;
 		margin-right: 6px;
+	}
+
+	.profile-badge {
+		width: fit-content;
+		padding: 1px 3px;
+		background: var(--divider-sm);
+		border-radius: 4px;
+		font-size: 12px;
+		display: inline-block;
+		margin-right: 4px;
 	}
 </style>
