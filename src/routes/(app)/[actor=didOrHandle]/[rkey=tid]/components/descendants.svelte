@@ -36,7 +36,7 @@
 
 		{#if item.$type === 'app.bsky.feed.defs#threadViewPost'}
 			{@const hasDescendant = !!(item.replies?.length || item.post.replyCount)}
-			{@const isNested = (item.replies?.length || item.post.replyCount || 0) > 1}
+			{@const isNested = true /* (item.replies?.length || item.post.replyCount || 0) > 1 */}
 
 			<PostDescendantItem
 				post={item.post}
