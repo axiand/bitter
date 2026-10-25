@@ -23,6 +23,7 @@ export const enum ProfileFilter {
 	POSTS,
 	POSTS_WITH_REPLIES,
 	MEDIA,
+	VIDEOS
 }
 
 export interface ProfileTimelineParams {
@@ -76,11 +77,13 @@ export const fetchTimeline = async ({
 						limit: PAGE_LIMIT,
 						includePins: params.pinned ?? params.filter !== ProfileFilter.MEDIA,
 						filter:
-							params.filter === ProfileFilter.MEDIA
-								? 'posts_with_media'
-								: params.filter === ProfileFilter.POSTS_WITH_REPLIES
-									? 'posts_with_replies'
-									: 'posts_and_author_threads',
+							params.filter === ProfileFilter.VIDEOS
+								? 'posts_with_video'
+								: params.filter === ProfileFilter.MEDIA
+									? 'posts_with_media'
+									: params.filter === ProfileFilter.POSTS_WITH_REPLIES
+										? 'posts_with_replies'
+										: 'posts_and_author_threads',
 					},
 				}),
 			);

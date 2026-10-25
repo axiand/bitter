@@ -21,6 +21,7 @@
 	<a class={cn('')} href="{base}/{did}">Posts</a>
 	<a class={cn('/with_replies')} href="{base}/{did}/with_replies">Replies</a>
 	<a class={cn('/media')} href="{base}/{did}/media">Media</a>
+	<a class={cn('/videos')} href="{base}/{did}/videos">Videos</a>
 </div>
 
 {@render children()}
