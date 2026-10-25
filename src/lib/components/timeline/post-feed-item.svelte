@@ -118,7 +118,7 @@
 				{/if}
 			</ContentHider>
 
-			<PostMetrics {post} />
+			<PostMetrics post={post} postUrl={postUrl} />
 		</div>
 	</div>
 </div>

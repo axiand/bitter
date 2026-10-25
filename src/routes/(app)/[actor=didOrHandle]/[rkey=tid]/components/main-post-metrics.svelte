@@ -15,7 +15,7 @@
 	const baseUrl = $derived(`${base}/${post.author.did}/${assertCanonicalResourceUri(post.uri).rkey}`);
 </script>
 
-{#snippet Stat(count: number | undefined, one: string, many: string, href: string)}
+{#snippet Stat(count: number | undefined, one: string, many: string, href: string | null)}
 	{#if count !== undefined && count > 0}
 		<a {href} class="stat">
 			<span class="count">{formatCompactNumber(count)}</span>
@@ -29,6 +29,7 @@
 		{@render Stat(post.repostCount, 'repost', 'reposts', `${baseUrl}/reposts`)}
 		{@render Stat(post.quoteCount, 'quote', 'quotes', `${baseUrl}/quotes`)}
 		{@render Stat(post.likeCount, 'like', 'likes', `${baseUrl}/likes`)}
+		{@render Stat(post.bookmarkCount, 'bookmark', 'bookmarks', null)}
 	</div>
 {/if}
 

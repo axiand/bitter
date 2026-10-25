@@ -28,7 +28,7 @@
 	const authorUrl = $derived(`${base}/${author.did}`);
 
 	const record = $derived(post.record as AppBskyFeedPost.Main);
-	const postUrl = $derived(`${base}/${author.did}/${assertCanonicalResourceUri(post.uri).rkey}#main`);
+	const postUrl = $derived(`${base}/${author.did}/${assertCanonicalResourceUri(post.uri).rkey}`);
 
 	const isAviBlurred = $derived(!!findLabel(author.labels, author.did, FlagsBlurMedia));
 	const blur = $derived(findLabel(post.labels, author.did, FlagsBlurContent));
@@ -57,7 +57,7 @@
 				{/if}
 			</ContentHider>
 
-			<PostMetrics {post} />
+			<PostMetrics post={post} postUrl={postUrl} />
 		</div>
 	</div>
 </div>
