@@ -142,6 +142,11 @@
 		font-weight: 700;
 	}
 
+	.profile-links {
+		display: inline-flex;
+		flex-flow: wrap;
+	}
+
 	.profile-link {
 		padding: 4px 10px;
 		background: var(--divider-sm);
