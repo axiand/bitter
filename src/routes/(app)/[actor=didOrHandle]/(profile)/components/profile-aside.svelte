@@ -44,7 +44,7 @@
 	<Avatar {profile} size="xl" {blur} />
 
 	<OverflowMenu
-		class="profile-overflow"
+		slim={false}
 		items={[
 			{
 				label: `Open in Bluesky app`,

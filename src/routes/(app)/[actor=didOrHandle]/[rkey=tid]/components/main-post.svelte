@@ -62,7 +62,7 @@
 		</a>
 
 		<OverflowMenu
-			class="post-actions"
+			slim={false}
 			items={[
 				{
 					label: `Unroll thread`,

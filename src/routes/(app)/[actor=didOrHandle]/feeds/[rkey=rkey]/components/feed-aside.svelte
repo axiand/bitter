@@ -30,7 +30,7 @@
 	<Avatar type="generator" src={feed.avatar} size="xl" />
 
 	<OverflowMenu
-		class="feed-overflow"
+		slim={false}
 		items={[
 			{
 				label: `Open in Bluesky app`,

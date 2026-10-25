@@ -71,7 +71,7 @@
 			</a>
 
 			<OverflowMenu
-				class="thread-actions"
+				slim={false}
 				items={[
 					{
 						label: `View original thread`,

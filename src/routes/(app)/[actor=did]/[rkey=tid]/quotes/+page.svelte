@@ -26,6 +26,7 @@
 <PageContainer>
 	<PageHeader title="Quotes">
 		<OverflowMenu
+			slim={false}
 			items={[
 				{
 					label: `Show all quotes`,

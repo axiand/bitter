@@ -1,9 +1,16 @@
 <script lang="ts">
 	import type { AppBskyFeedDefs, AppBskyFeedPost } from '@atcute/bluesky';
 
+	import { base } from '$app/paths';
+
 	import { normalizeDisplayName } from '$lib/utils/bluesky/display';
+	import { assertCanonicalResourceUri } from '$lib/types/at-uri';
 
 	import Time from '$lib/components/islands/time.svelte';
+	import OverflowMenu from '../overflow-menu.svelte';
+
+	import ThreadOutlined from '../central-icons/thread-outlined.svelte';
+	import SquareArrowTopRightOutlined from '../central-icons/square-arrow-top-right-outlined.svelte';
 
 	interface Props {
 		post: AppBskyFeedDefs.PostView;
@@ -16,6 +23,7 @@
 
 	const author = $derived(post.author);
 	const authorName = $derived(normalizeDisplayName(author.displayName ?? ''));
+	const uri = $derived(assertCanonicalResourceUri(post.uri));
 
 	const createdAt = $derived((post.record as AppBskyFeedPost.Main).createdAt);
 </script>
@@ -36,6 +44,31 @@
 	<a href={postUrl} class="date">
 		<Time date={createdAt} format="relative-time" />
 	</a>
+
+	<div class="post-actions">
+		<OverflowMenu
+				slim={true}
+				items={[
+					{
+						label: `Unroll thread`,
+						href: `${base}/${author.did}/${uri.rkey}/unroll`,
+						icon: ThreadOutlined,
+					},
+					{
+						label: `Open in Bluesky app`,
+						href: `https://bsky.app/profile/${author.did}/post/${uri.rkey}`,
+						external: true,
+						icon: SquareArrowTopRightOutlined,
+					},
+					{
+						label: `Open in PDSls`,
+						href: `https://pdsls.dev/${post.uri}`,
+						external: true,
+						icon: SquareArrowTopRightOutlined,
+					},
+				]}
+			/>
+	</div>
 </div>
 
 <style>
@@ -97,5 +130,10 @@
 		&:hover {
 			text-decoration: underline;
 		}
+	}
+
+	.post-actions {
+		height: 16px;
+		margin-left: 4px;
 	}
 </style>

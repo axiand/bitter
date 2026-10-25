@@ -13,15 +13,15 @@
 
 	interface Props {
 		items: Item[];
-		class?: string;
+		slim: boolean;
 	}
 
-	const { items, class: className }: Props = $props();
+	const { items, slim }: Props = $props();
 
 	const id = $props.id();
 </script>
 
-<button class={['button', className]} title="More actions" popovertarget={id} style="anchor-name: --{id}">
+<button class={['button', slim && 'slim-overflow-menu']} title="More actions" popovertarget={id} style="anchor-name: --{id}">
 	<DotGrid_1x3HorizontalOutlined />
 </button>
 
@@ -52,6 +52,10 @@
 			background: var(--tap-md);
 			color: var(--text-primary);
 		}
+	}
+
+	:global(.slim-overflow-menu) {
+		height: 16px !important;
 	}
 
 	.menu {

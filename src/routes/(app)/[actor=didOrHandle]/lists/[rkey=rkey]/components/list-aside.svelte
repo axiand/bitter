@@ -29,7 +29,7 @@
 	<Avatar type="list" src={list.avatar} size="xl" />
 
 	<OverflowMenu
-		class="list-overflow"
+		slim={false}
 		items={[
 			{
 				label: `Open in Bluesky app`,
