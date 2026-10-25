@@ -18,7 +18,6 @@
 	}
 
 	const { profile }: Props = $props();
-	console.log(profile)
 
 	const did = $derived(profile.did);
 
