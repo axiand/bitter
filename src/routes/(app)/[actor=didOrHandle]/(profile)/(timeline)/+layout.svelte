@@ -22,6 +22,7 @@
 	<a class={cn('/with_replies')} href="{base}/{did}/with_replies">Replies</a>
 	<a class={cn('/media')} href="{base}/{did}/media">Media</a>
 	<a class={cn('/videos')} href="{base}/{did}/videos">Videos</a>
+	<a class={cn('/_')} href="{base}/search/posts?q=from:{data.profile.handle}+">Search</a>
 </div>
 
 {@render children()}
