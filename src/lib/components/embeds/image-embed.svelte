@@ -93,11 +93,11 @@
 
 	{#if standalone}
 		<a href={image.fullsize.replace('@jpeg', '@png')} target="_blank" rel="noopener" class="image-wrapper">
-			<img loading="lazy" src={image.thumb} {alt} class={`image` + (blur ? ` is-blurred` : ``)} />
+			<img loading="lazy" src={image.thumb} {alt} title="{alt}" class={`image` + (blur ? ` is-blurred` : ``)} />
 		</a>
 	{:else}
 		<div class="image-wrapper">
-			<img loading="lazy" src={image.thumb} {alt} class={`image` + (blur ? ` is-blurred` : ``)} />
+			<img loading="lazy" src={image.thumb} {alt} title="{alt}" class={`image` + (blur ? ` is-blurred` : ``)} />
 		</div>
 	{/if}
 
