@@ -39,7 +39,7 @@
 			},
 			{
 				label: `Open in PDSls`,
-				href: `https://pdsls.dev/${pack.uri}`,
+				href: `https://pds.ls/${pack.uri}`,
 				external: true,
 				icon: SquareArrowTopRightOutlined,
 			},

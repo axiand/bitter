@@ -65,7 +65,7 @@
 			},
 			{
 				label: `Open in PDSls`,
-				href: `https://pdsls.dev/at://${profile.did}`,
+				href: `https://pds.ls/at://${profile.did}`,
 				external: true,
 				icon: SquareArrowTopRightOutlined,
 			},

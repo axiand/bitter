@@ -40,7 +40,7 @@
 			},
 			{
 				label: `Open in PDSls`,
-				href: `https://pdsls.dev/${feed.uri}`,
+				href: `https://pds.ls/${feed.uri}`,
 				external: true,
 				icon: SquareArrowTopRightOutlined,
 			},
