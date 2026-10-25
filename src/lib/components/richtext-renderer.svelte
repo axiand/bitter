@@ -45,9 +45,9 @@
 				{@const redir = redirectBskyUrl(parsed)}
 
 				{#if redir && redir.type === 'internal'}
-					<a href={redir.url} class="link">{segment.text}</a>
+					<a href={redir.url} title={parsed.href} class="link">{segment.text}</a>
 				{:else}
-					<a target="_blank" href={redir ? redir.url : parsed.href} rel="noopener nofollow" class="link"
+					<a target="_blank" href={redir ? redir.url : parsed.href} title={parsed.href} rel="noopener nofollow" class="link"
 						>{segment.text}</a
 					>
 				{/if}
