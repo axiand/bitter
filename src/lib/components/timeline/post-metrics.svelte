@@ -48,7 +48,7 @@
 
 <div class="post-metrics">
 	{@render Stat(replyCount, Bubble_2Outlined, 'reply', 'replies', '')}
-	{@render Stat(repostCount, ArrowsRepeatRightLeftOutlined, 'repost', 'reposts', null)}
+	{@render Stat(repostCount, ArrowsRepeatRightLeftOutlined, 'repost', 'reposts', 'reposts')}
 	{@render Stat(quoteCount, QuoteOutlined, 'quote', 'quotes', 'quotes')}
 	{@render Stat(likeCount, HeartOutlined, 'like', 'likes', 'likes')}
 	{@render Stat(bookmarkCount, BookmarkOutlined, 'bookmark', 'bookmarks', null)}
