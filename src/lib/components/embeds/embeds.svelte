@@ -92,8 +92,11 @@
 		flex-direction: column;
 		gap: 12px;
 		margin: 12px 0 0 0;
-		width: fit-content;
 		max-width: 100%;
+
+		&:not(:has(.image-embed .grid)) {
+			width: fit-content;
+		}
 	}
 
 	.message {

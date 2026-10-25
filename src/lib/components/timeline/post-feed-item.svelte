@@ -30,7 +30,7 @@
 	const authorUrl = $derived(`${base}/${author.did}`);
 
 	const record = $derived(post.record as AppBskyFeedPost.Main);
-	const postUrl = $derived(`${base}/${author.did}/${assertCanonicalResourceUri(post.uri).rkey}#main`);
+	const postUrl = $derived(`${base}/${author.did}/${assertCanonicalResourceUri(post.uri).rkey}`);
 
 	const isAviBlurred = $derived(!!findLabel(author.labels, author.did, FlagsBlurMedia));
 	const blur = $derived(findLabel(post.labels, author.did, FlagsBlurContent));
@@ -104,6 +104,10 @@
 						Replying to an unknown post
 					{/if}
 				</p>
+			{/if}
+
+			{#if item.opThreadPostCount != null}
+				<a class="thread-counter" href="{postUrl}/unroll">{item.opThreadPostIndex}/{item.opThreadPostCount}</a>
 			{/if}
 
 			<ContentHider {blur}>
@@ -253,6 +257,20 @@
 			&:hover {
 				text-decoration: underline;
 			}
+		}
+	}
+
+	.thread-counter {
+		font-weight: bold;
+		color: var(--accent-text);
+		padding: 2px 4px;
+		background: var(--divider-sm);
+		border-radius: 999px;
+		z-index: 1;
+		position: relative;
+
+		&:hover {
+			opacity: 50%;
 		}
 	}
 </style>

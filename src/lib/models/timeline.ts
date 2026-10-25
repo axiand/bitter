@@ -20,6 +20,8 @@ export interface UiTimelineItem extends TimelineItem {
 	id: string;
 	prev: boolean;
 	next: boolean;
+	opThreadPostCount?: number;
+	opThreadPostIndex?: number;
 }
 
 // #region Filters
