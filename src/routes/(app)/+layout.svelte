@@ -7,6 +7,7 @@
 
 	import '$lib/styles/app.css';
 	import MagnifyingGlassOutlined from '$lib/components/central-icons/magnifying-glass-outlined.svelte';
+	import CircleInfoOutlined from '$lib/components/central-icons/circle-info-outlined.svelte';
 
 	interface Props {
 		children: Snippet<[]>;
@@ -36,6 +37,9 @@
 					<MagnifyingGlassOutlined />
 				</button>
 			</form>
+			<a class="navbar-about-link navbar-icon" href="/about">
+				<CircleInfoOutlined />
+			</a>
 		</div>
 	</div>
 </div>
@@ -61,13 +65,24 @@
 		font-weight: bold;
 	}
 
+	.navbar-right {
+		display: flex;
+  		align-items: center;
+	}
+
+	.navbar-icon {
+		line-height: 0px;
+  		font-size: 20px;
+		margin-left: 8px;
+	}
+
 	.navbar-search {
 		display: flex;
 
 		& .input, .button {
 			border: 1px solid var(--divider-md);
-			background: transparent;
 			color: inherit;
+			background: var(--bg-slate);
 			padding: 0.2em;
 		}
 
@@ -79,6 +94,7 @@
 		& .button {
 			display: inline-grid;
 			place-items: center;
+			background: var(--bg-primary);
 		}
 	}
 </style>
