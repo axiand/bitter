@@ -37,6 +37,7 @@
 </script>
 
 <div class={['post-feed-item', !item.next && `is-leaf`]}>
+	<a class="post-wraplink" href="{postUrl}" aria-label="Post"></a>
 	<div class="contexts">
 		{#if item.prev}
 			<div class="ascendant-line-wrapper">
@@ -132,6 +133,17 @@
 			}
 		}
 	}
+
+	.post-wraplink {
+		position: absolute;
+		width: 100%;
+		display: block;
+		height: 100%;
+		right: 0;
+		top: 0;
+		user-select: none;
+	}
+
 	.is-leaf {
 		border-bottom: 1px solid var(--divider-sm);
 	}
@@ -161,6 +173,7 @@
 		position: relative;
 		flex-direction: column;
 		padding: 8px 0 4px 0;
+		width: fit-content;
 	}
 	.context {
 		display: flex;
@@ -205,6 +218,7 @@
 		gap: 12px;
 
 		.aside {
+			z-index: 1;
 			display: flex;
 			flex-shrink: 0;
 			flex-direction: column;
@@ -223,6 +237,9 @@
 	}
 
 	.reply-context {
+		z-index: 1;
+		position: relative;
+		width: fit-content;
 		overflow: hidden;
 		color: var(--text-blurb);
 		font-size: 0.8125rem;

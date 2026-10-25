@@ -86,10 +86,14 @@
 
 <style>
 	.embeds {
+		z-index: 1;
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		gap: 12px;
 		margin: 12px 0 0 0;
+		width: fit-content;
+		max-width: 100%;
 	}
 
 	.message {

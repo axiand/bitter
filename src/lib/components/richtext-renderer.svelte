@@ -69,6 +69,9 @@
 		overflow: hidden;
 		white-space: pre-wrap;
 		overflow-wrap: break-word;
+		display: inline;
+		z-index: 1;
+		position: relative;
 
 		&:empty {
 			display: none;

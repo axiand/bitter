@@ -40,11 +40,15 @@
 
 <style>
 	.post-meta {
+		z-index: 1;
+		position: relative;
 		display: flex;
 		align-items: center;
 		min-width: 0;
+		width: fit-content;
 		color: var(--text-blurb);
 	}
+
 	.has-bottom-gutter {
 		margin-bottom: 2px;
 	}

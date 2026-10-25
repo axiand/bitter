@@ -45,6 +45,7 @@
 	</summary>
 
 	<div class="contents">
+		<a class="post-wraplink" href="{postUrl}" aria-label="Post"></a>
 		<ContentHider {blur}>
 			<RichtextRenderer text={record.text} facets={record.facets} />
 
@@ -87,6 +88,22 @@
 		flex-direction: column;
 		contain: content;
 		min-width: 0;
+
+		@media (hover: hover) {
+			&:not(:has(.post-descendant-item:hover)):hover{
+				background: var(--tap-sm);
+			}
+		}
+	}
+
+	.post-wraplink {
+		position: absolute;
+		width: 100%;
+		display: block;
+		height: calc(100% + 16px);
+		right: 0;
+		top: -24px;
+		user-select: none;
 	}
 
 	.header {
@@ -95,6 +112,8 @@
 		contain: content;
 		padding: 12px 16px;
 		list-style: none;
+		width: fit-content;
+  		z-index: 2;
 
 		.post-descendant-item:not([open]) & {
 			opacity: 0.5;
@@ -110,9 +129,7 @@
 	}
 
 	.contents {
-		display: flex;
 		position: relative;
-		flex-direction: column;
 		margin: -10px 0 0 0;
 		padding: 0 16px 12px calc(20px + 16px + 8px);
 
