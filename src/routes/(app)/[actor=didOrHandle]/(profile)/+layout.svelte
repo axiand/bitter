@@ -29,12 +29,14 @@
 	<div class="profile-layout">
 		<div class="banner">
 			{#if profile.banner}
-				<img
-					loading="lazy"
-					src={profile.banner}
-					alt=""
-					class={['banner-image', blurBanner && 'is-blurred']}
-				/>
+				<a href="{profile.banner}">
+					<img
+						loading="lazy"
+						src={profile.banner}
+						alt=""
+						class={['banner-image', blurBanner && 'is-blurred']}
+					/>
+				</a>
 			{/if}
 		</div>
 

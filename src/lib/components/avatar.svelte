@@ -58,7 +58,9 @@
 	</a>
 {:else}
 	<div class={['avatar', `is-${size}`, `is-${type}`]}>
-		{@render Image()}
+		<a href="{src}">
+			{@render Image()}
+		</a>
 	</div>
 {/if}
 
