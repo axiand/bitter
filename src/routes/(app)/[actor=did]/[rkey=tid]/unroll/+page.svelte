@@ -103,7 +103,7 @@
 							</span>
 						</p>
 
-						{#each cluster as post}
+						{#each cluster as post, postIdx}
 							{@const record = post.record as AppBskyFeedPost.Main}
 
 							<div class="subitem">
@@ -112,6 +112,10 @@
 								{#if post.embed}
 									<Embeds embed={post.embed} />
 								{/if}
+
+								<span class="item-info">
+									{postIdx + 1} of {cluster.length}
+								</span>
 							</div>
 						{/each}
 					</div>
@@ -205,6 +209,10 @@
 		min-width: 0;
 	}
 	.meta {
+		color: var(--text-blurb);
+	}
+
+	.item-info {
 		color: var(--text-blurb);
 	}
 
