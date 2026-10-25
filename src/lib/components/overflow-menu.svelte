@@ -21,7 +21,7 @@
 	const id = $props.id();
 </script>
 
-<button class={['button', slim && 'slim-overflow-menu']} title="More actions" popovertarget={id} style="anchor-name: --{id}">
+<button class={['button', 'overflow-menu', slim && 'slim-overflow-menu']} title="More actions" popovertarget={id} style="anchor-name: --{id}">
 	<DotGrid_1x3HorizontalOutlined />
 </button>
 

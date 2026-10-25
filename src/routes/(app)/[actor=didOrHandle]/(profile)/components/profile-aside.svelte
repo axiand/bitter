@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AppBskyActorDefs } from '@atcute/bluesky';
+	import type { AppBskyActorDefs, AppBskyActorLink } from '@atcute/bluesky';
 
 	import { base } from '$app/paths';
 
@@ -40,6 +40,17 @@
 	</a>
 {/snippet}
 
+{#snippet ProfileLink(link: AppBskyActorDefs.ProfileLinkView)}
+	{@const displayTitle = (link.title != null && link.title.length > 0) ? link.title : new URL(link.url).hostname}
+
+	<a class="profile-link" href="{link.url}" target="_blank">
+		{#if link.icon}
+			<img class="profile-link-icon" src="{link.icon}" alt="Site icon for {displayTitle}">
+		{/if}
+		<p class="profile-link-title">{displayTitle}</p>
+	</a>
+{/snippet}
+
 <div class="profile-aside">
 	<Avatar {profile} size="xl" {blur} />
 
@@ -72,6 +83,12 @@
 		<RichtextRawRenderer text={description} />
 	{/if}
 
+	<div class="profile-links">
+		{#each profile.links as link}
+			{@render ProfileLink(link)}
+		{/each}
+	</div>
+
 	<div class="stats">
 		{@render Stat(profile.followersCount, 'follower', 'followers', 'followers')}
 		{@render Stat(profile.followsCount, 'following', 'following', 'following')}
@@ -88,7 +105,7 @@
 		padding: 16px;
 		min-width: 0;
 
-		:global(.profile-overflow) {
+		:global(.overflow-menu) {
 			position: absolute;
 			top: 12px;
 			right: 12px;
@@ -123,5 +140,28 @@
 	.stat-count {
 		color: var(--text-primary);
 		font-weight: 700;
+	}
+
+	.profile-link {
+		padding: 4px 10px;
+		background: var(--divider-sm);
+		margin-right: 8px;
+		display: inline-flex;
+		margin-bottom: 6px;
+		border-radius: 999px;
+		font-size: 12px;
+		color: var(--text-primary);
+		border: 1px solid var(--tap-md);
+		align-items: center;
+	}
+
+	.profile-link-title {
+		width: fit-content;
+	}
+
+	.profile-link-icon {
+		height: 16px;
+		width: 16px;
+		margin-right: 6px;
 	}
 </style>
