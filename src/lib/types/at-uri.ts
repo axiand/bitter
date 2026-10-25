@@ -8,8 +8,6 @@ import {
 } from '@atcute/lexicons';
 import type { Records } from '@atcute/lexicons/ambient';
 
-import { assert } from '$lib/utils/invariant';
-
 export const makeAtUri = (
 	repo: Did | Handle,
 	collection: keyof Records | (Nsid & {}),
@@ -20,9 +18,6 @@ export const makeAtUri = (
 
 export const assertCanonicalResourceUri = (input: string): ParsedCanonicalResourceUri => {
 	const result = parseCanonicalResourceUri(input);
-	if (!result.ok) {
-		assert(false, result.error);
-	}
 
-	return result.value;
+	return result;
 };
